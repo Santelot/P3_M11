@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook-P3-M11</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: left;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #ffeb3b;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook-P3-M11</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+<!-- Actividad 0: Revisión de Misión -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('revision_mision')">
+        <div class="title">
+            <span>📚 Actividad 0: Revisión de Misión</span>
+            <span>⏰ Tiempo: No especificado</span>
+        </div>
+        <div class="subtitle">Revisar los materiales y preparar la misión</div>
+    </div>
+    <div id="revision_mision" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1: Proyectar Diapositiva 1 "Revisión de Materiales"</div>
+            <div class="section-title">Acción</div>
+            <div class="dialogue">Revisar la tabla con los materiales de la clase. Asegúrate de que las computadoras con acceso a Scratch y las Magic Tablets estén listas.</div>
+        </div>
+        <div class="section">
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ninguno (actividad interna).</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 1: Saludo y Ritual Gnius Club -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">
+            <span>📚 Actividad 1: Saludo y Ritual Gnius Club</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Dar la bienvenida y presentar el tema del día</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <!-- Paso 1 -->
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 2 "Saludo a los estudiantes"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"¡Hola equipo Gnius! ¿Listos para aprender algo increíble hoy?"</div>
+        </div>
+        <!-- Paso 2 -->
+        <div class="section">
+            <div class="step-title">Paso 2 (1.5 minutos): Proyectar Diapositiva 3 "Evaluación de Estado de Ánimo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Si están llenos de energía y listos para programar, pongan cara felíz, si necesitan más energía pongan cara seria ¡Vamos a ver cómo se sienten hoy!"</div>
+        </div>
+        <!-- Paso 3 -->
+        <div class="section">
+            <div class="step-title">Paso 3 (1.5 minutos): Proyectar Diapositiva 4 "Ritual de Agradecimiento"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Ahora, vamos a juntar nuestras manos y dar las gracias por lo que vamos a aprender hoy. ¡Gracias por estar aquí, Genios! Hoy va a ser un gran día de aprendizaje y diversión."</div>
+        </div>
+        <!-- Paso 4 -->
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 5 "Objetivos de la Misión"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Hoy tenemos tres grandes objetivos: 1) Aprender a usar variables para almacenar datos. 2) Usar condicionales para tomar decisiones en Scratch. 3) Hacer paper programming en equipo. ¡Será una misión emocionante!"</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 2: Innovación del Día -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion_dia')">
+        <div class="title">
+            <span>📚 Actividad 2: Innovación del Día</span>
+            <span>⏰ Tiempo: 5 minutos</span>
+        </div>
+        <div class="subtitle">Explorando cómo las variables y condicionales se usan en el mundo real</div>
+    </div>
+    <div id="innovacion_dia" class="content">
+        <!-- Paso 1 -->
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 6 "Introducción al reconocimiento facial"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Hoy les voy a hablar sobre cómo funciona el reconocimiento facial en nuestros teléfonos. Este sistema guarda variables con tus rasgos faciales y usa condicionales para verificar si coinciden con los datos que ya están almacenados. ¡Es como un juego de seguridad programado!"</div>
+        </div>
+        <!-- Paso 2 -->
+        <div class="section">
+            <div class="step-title">Paso 2 (3 minutos): Proyectar Diapositiva 7 "Reproducción del video sobre reconocimiento facial"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"¡Ahora veamos un video que nos muestra cómo el reconocimiento facial utiliza variables y condicionales para asegurarse de que solo tú puedas acceder a tu teléfono!"</div>
+        </div>
+        <!-- Paso 3 -->
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 8 "Reflexión sobre el uso de variables y condicionales"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"¿Cómo podríamos usar variables y condicionales en Scratch para crear algo similar? Por ejemplo, ¿qué tal si nuestro personaje solo se mueve si una variable específica coincide con una entrada?"</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 3: Brain Gym -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brain_gym')">
+        <div class="title">
+            <span>📚 Actividad 3: Brain Gym</span>
+            <span>⏰ Tiempo: 15 minutos</span>
+        </div>
+        <div class="subtitle">Aprender a programar con Scratch utilizando variables y condicionales</div>
+    </div>
+    <div id="brain_gym" class="content">
+        <!-- Paso 1 -->
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 9 "Anuncio del desafío"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"¡Genios! El desafío de hoy es crear un juego interactivo en Scratch utilizando variables y condicionales. Vamos a empezar creando una variable."</div>
+        </div>
+        <!-- Paso 2 -->
+        <div class="section">
+            <div class="step-title">Paso 2 (4 minutos): Proyectar Diapositiva 10 "Guía para crear la variable 'Puntos'"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Vamos a comenzar creando una variable para contar los puntos que nuestro gato ganará al tocar la pelota. Imagina que una variable es una herramienta que se usa como una caja donde guardamos algo que puede cambiar. Vamos a crear la variable ‘Puntos’ esto nos ayudará a sumar los puntos, podemos crear variables 'cajitas' que necesitemos para guardar información."</div>
+        </div>
+        <!-- Paso 3 -->
+        <div class="section">
+            <div class="step-title">Paso 3 (3 minutos): Proyectar Diapositiva 11 "Guía para mover el gato usando las teclas de flecha"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Vamos a hacer que el gato se mueva con las teclas de flecha. Cada vez que presionemos una tecla, el gato se moverá en esa dirección, observen que en movimientos ponemos '-x' cuando vamos a la izquierda, ponemos 'x' para ir a la derecha, ponemos '-y' para ir abajo y ponemos 'y' para ir arriba."</div>
+        </div>
+        <!-- Paso 4 -->
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Proyectar Diapositiva 12 "Añadir una pelota como objeto interactivo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Vamos a añadir una pelota."</div>
+        </div>
+        <!-- Paso 5 -->
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Proyectar Diapositiva 13 "Preparar el inicio del juego"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Primero, queremos que nuestro proyecto empiece a funcionar cuando se presione la banderita verde. Para esto, vamos a usar el bloque 'al presionar banderita'. Este bloque se encarga de que todo lo que pongamos debajo de él comience a suceder cuando iniciemos el proyecto."</div>
+        </div>
+        <!-- Paso 6 -->
+        <div class="section">
+            <div class="step-title">Paso 6 (1 minuto): Proyectar Diapositiva 14 "Inicializar los puntos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Antes de que el gato comience a ganar puntos, necesitamos asegurarnos de que la variable de 'puntos' comience en 0. Esto lo haremos con el bloque 'fijar mi variable a 0'. Pero, como queremos que se refiera específicamente a la variable 'puntos', vamos a cambiar la opción 'mi variable' a 'puntos'. ¡Así, cada vez que inicies el proyecto, los puntos comenzarán desde cero!"</div>
+        </div>
+        <!-- Paso 7 -->
+        <div class="section">
+            <div class="step-title">Paso 7 (1 minuto): Proyectar Diapositiva 15 "Preparar la pelota para que esté siempre lista"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Ahora, necesitamos que la pelota siempre esté lista para que el gato la toque. Para eso, utilizamos el bloque 'por siempre'. Todo lo que pongamos dentro de este bloque ocurrirá constantemente durante el proyecto, como si el juego nunca dejara de estar atento a lo que sucede."</div>
+        </div>
+        <!-- Paso 8 -->
+        <div class="section">
+            <div class="step-title">Paso 8 (1 minuto): Proyectar Diapositiva 16 "Condicionar la pelota con el bloque 'si... entonces'"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Dentro del bloque 'por siempre', vamos a colocar un bloque especial llamado 'si... entonces'. Este bloque es importante porque le da a la pelota una condición. ¿Cuál será la condición? Pues que si el gato toca la pelota, ocurra algo. Para crear esta condición, usaremos el bloque 'tocando a (Sprite)', y en lugar de 'Sprite', seleccionamos al gato. Así, si el gato toca la pelota, ¡se activará lo que pongamos dentro de este bloque!"</div>
+        </div>
+        <!-- Paso 9 -->
+        <div class="section">
+            <div class="step-title">Paso 9 (1 minuto): Proyectar Diapositiva 17 "Mover la pelota a una posición aleatoria cuando el gato la toque"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Cuando el gato toque la pelota, queremos que ésta se mueva a una nueva posición para que el juego sea más interesante. Usaremos el bloque 'ir a posición aleatoria' para que la pelota se mueva a un lugar diferente en la pantalla cada vez que el gato la toque. ¡Esto hará que el juego sea más desafiante!"</div>
+        </div>
+        <!-- Paso 10 -->
+        <div class="section">
+            <div class="step-title">Paso 10 (1 minuto): Proyectar Diapositiva 18 "Suma de puntos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Finalmente, cada vez que el gato toque la pelota, queremos que los puntos aumenten. Para esto, vamos a usar el bloque 'cambiar mi variable en 1', pero no olvides cambiar 'mi variable' a 'puntos'. Esto hará que cada vez que el gato toque la pelota, se sume un punto."</div>
+        </div>
+        <!-- Paso 11 -->
+        <div class="section">
+            <div class="step-title">Paso 11 (1 minuto): Proyectar Diapositiva 19 "El gato dice '¡Ganaste!' al alcanzar los 10 puntos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Vamos a programar lo que sucede cuando el gato alcanza 10 puntos. Si la variable ‘Puntos’ es igual a 10, la pelota dirá ‘¡Ganaste!’."</div>
+        </div>
+        <!-- Paso 12 -->
+        <div class="section">
+            <div class="step-title">Paso 12 (1 minuto): Proyectar Diapositiva 20 "Prueba del juego"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"¡Muy bien, Genios! Ahora vamos a probar el juego para ver si todo funciona como esperamos. Muevan al gato con las flechas, hagan que toque la pelota para ganar puntos, y cuando llegue a 10 puntos, ¡debería decir ‘Ganaste’!"</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4: State Change -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">
+            <span>📚 Actividad 4: State Change</span>
+            <span>⏰ Tiempo: 1.5 minutos</span>
+        </div>
+        <div class="subtitle">Activar el cuerpo con ejercicios basados en condicionales</div>
+    </div>
+    <div id="state_change" class="content">
+        <!-- Paso 1 -->
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 21 "Ejercicio físico basado en condicionales"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Ahora vamos a activar nuestro cuerpo con una actividad que simula los condicionales. Les haré una pregunta, y dependiendo de si es verdadera o falsa, ¡ustedes saltarán o se agacharán!"</div>
+        </div>
+        <!-- Paso 2 -->
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 22 "Comenzar el ejercicio con preguntas condicionales"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"¿El sol es una estrella? (¡Salten!) ¿El gato en Scratch puede volar? (¡Agáchense!). ¿Los números pueden ser variables en Scratch? (¡Salten!). ¿Los gatos pueden nadar en la vida real? (¡Agáchense!). ¿Podemos usar Scratch para crear videojuegos? (¡Salten!). ¡Sigan moviéndose!"</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 5: Team Gnius -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">
+            <span>📚 Actividad 5: Team Gnius</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Formar equipos y organizar materiales</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <!-- Paso 1 -->
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 23 "Formación de equipos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Vamos a trabajar en parejas. Tienen 30 segundos para encontrar a su compañero. ¡Elijan bien a su Programador Principal y Asistente de Programación!"</div>
+        </div>
+        <!-- Paso 2 -->
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 24 "Temporizador para la formación de equipos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Tienen 30 segundos para organizarse en equipos de 2."</div>
+        </div>
+        <!-- Paso 3 -->
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 25 "Recolección de materiales por equipo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Ahora, uno de ustedes va a recoger los materiales. Recuerden, solo una persona por equipo."</div>
+        </div>
+        <!-- Paso 4 -->
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 26 "Temporizador para recoger los materiales"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Tienen 30 segundos para que uno de ustedes recoja el material. ¡Rápido, Genios!"</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 6: Challenge -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>📚 Actividad 6: Challenge</span>
+            <span>⏰ Tiempo: 12.5 minutos</span>
+        </div>
+        <div class="subtitle">Crear un juego de aventuras utilizando variables y condicionales</div>
+    </div>
+    <div id="challenge" class="content">
+        <!-- Paso 1 -->
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 27 "Introducción al desafío del día"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Genios, el desafío de hoy es crear un juego de aventuras. El personaje tendrá que coleccionar 3 objetos diferentes. Cada vez que recoja uno, ganará puntos. Cuando haya coleccionado los 3 objetos, ¡habrá ganado!"</div>
+        </div>
+        <!-- Paso 2 -->
+        <div class="section">
+            <div class="step-title">Paso 2 (5 minutos): Proyectar Diapositiva 28 "Trabajo en equipo para Paper Programming"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Tienen 5 minutos para empezar a dibujar el código en la Magic Tablet. El Programador Principal debe asegurarse de que los bloques estén bien organizados, y el Asistente de Programación ayudará revisando y sugiriendo mejoras. ¡Platiquen entre ustedes para asegurarse de que el flujo del juego esté claro!"</div>
+        </div>
+        <!-- Paso 3 -->
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 29 "Cambio de roles"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"¡Ahora es momento de cambiar roles! El Programador Principal se convierte en el Asistente, y el Asistente se convierte en el Programador. Tienen 30 segundos para cambiar de roles."</div>
+        </div>
+        <!-- Paso 4 -->
+        <div class="section">
+            <div class="step-title">Paso 4 (5 minutos): Proyectar Diapositiva 30 "Continuar con Paper Programming en los roles intercambiados"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Tienen 5 minutos más para completar su Paper Programming. Asegúrense de que el código esté bien descrito en la Magic Tablet y que puedan visualizar cómo se verá en Scratch. ¡No olviden hablar entre ustedes para asegurarse de que todo funcione!"</div>
+        </div>
+        <!-- Paso 5 -->
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Proyectar Diapositiva 31 "Reflexión sobre el desafío"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"¡Excelente trabajo, Genios! Han creado su código en papel y ahora están listos para llevarlo a Scratch. Reflexionen sobre cómo han trabajado en equipo y qué tan claros han sido al dibujar su código. ¿Están listos para el siguiente paso?"</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 7: Easter Egg -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easter_egg')">
+        <div class="title">
+            <span>📚 Actividad 7: Easter Egg</span>
+            <span>⏰ Tiempo: 4 minutos</span>
+        </div>
+        <div class="subtitle">Premio de Mon-e para quienes prestaron atención</div>
+    </div>
+    <div id="easter_egg" class="content">
+        <!-- Paso 1 -->
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 32 "Introducción al Easter Egg"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Genios, como siempre, tenemos un Easter Egg oculto en nuestra clase de hoy. ¡Es su momento para demostrar que prestaron atención!"</div>
+        </div>
+        <!-- Paso 2 -->
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 33 "Pregunta del Easter Egg"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"La pregunta del Easter Egg es: ¿Qué es una variable?"</div>
+        </div>
+        <!-- Paso 3 -->
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Los estudiantes responden en voz baja al maestro</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Voy a elegir a 3 de ustedes. Vengan y díganme la respuesta en voz baja. ¡Buena suerte!"</div>
+        </div>
+        <!-- Paso 4 -->
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 34 "Anunciar la respuesta correcta y ganadores"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"¡La respuesta correcta es: Una variable es una herramienta que se usa como una caja donde guardamos algo que puede cambiar! Felicidades a los que acertaron. ¡Ganaron Mon-e extra por su atención!"</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 8: Honor de Dojo -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>📚 Actividad 8: Honor de Dojo</span>
+            <span>⏰ Tiempo: 4 minutos</span>
+        </div>
+        <div class="subtitle">Reflexión final y reconocimiento del trabajo en equipo</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <!-- Paso 1 -->
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 35 "Revisión de los objetivos cumplidos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Genios, antes de irnos, vamos a revisar lo que logramos hoy. ¿Qué aprendimos sobre variables y condicionales en Scratch? ¡Hemos cumplido con nuestros objetivos!"</div>
+        </div>
+        <!-- Paso 2 -->
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Reconocimiento general al esfuerzo del grupo</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Hoy todo el grupo ha hecho un excelente trabajo. No solo aprendieron a programar con variables y condicionales, sino que trabajaron en equipo para completar su desafío. ¡Bien hecho, Genios!"</div>
+        </div>
+        <!-- Paso 3 -->
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 36 "Reflexión sobre lo aprendido"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Reflexionemos por un momento. ¿Qué fue lo que más les gustó de esta clase? ¿Qué fue lo más difícil? Piensen en cómo podemos mejorar juntos para la próxima misión."</div>
+        </div>
+        <!-- Paso 4 -->
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 37 "Recoger los materiales y organizar el espacio de trabajo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">"Ahora es momento de honrar nuestro Dojo organizando y recogiendo todo lo que usamos hoy. ¡Un buen genio siempre deja el espacio mejor de lo que lo encontró!"</div>
+        </div>
+    </div>
+</div>
+</div> <!-- Cierre del container -->
+
+    <!-- Scripts adicionales si es necesario -->
+    <script>
+        // Agregar scripts adicionales aquí si es necesario
+    </script>
+
+    </body>
+    </html>
